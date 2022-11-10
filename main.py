@@ -1,6 +1,8 @@
 import pygame as pg
 
 from settings import *
+from sprites import Player
+
 
 class Game:
     def __init__(self):
@@ -13,6 +15,8 @@ class Game:
     
     def new(self):
         self.all_sprites = pg.sprite.Group()
+        self.player = Player()
+        self.all_sprites.add(self.player)
         self.run()
     
     def run(self):
@@ -37,7 +41,6 @@ class Game:
                 # close game while playing if user quit
                 if self.playing:
                     self.playing = False
-
     
     def draw(self):
         # Draw / render
